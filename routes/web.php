@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BottleController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::prefix('admin')->group(function () {
+    Route::get('create-bottle', [BottleController::class, 'create'])->name('bottle-create');
+});
